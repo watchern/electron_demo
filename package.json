@@ -8,7 +8,11 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "make:win32": "electron-forge make --platform=win32 --arch=ia32",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "electronPackagerConfig": {
+    "icon": "build/icons/icon.ico"
   },
   "author": "YK",
   "license": "ISC",
@@ -25,6 +29,7 @@
     "node": "14.21.3"
   },
   "dependencies": {
+    "@electron/rebuild": "3.6.1",
     "electron-squirrel-startup": "^1.0.1"
   }
 }
