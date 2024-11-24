@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "An electron project",
   "main": "main.js",
+  "author": "YK",
+  "license": "ISC",
   "scripts": {
     "dev": "electron .",
     "start": "electron-forge start",
@@ -11,11 +13,9 @@
     "make:win32": "electron-forge make --platform=win32 --arch=ia32",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "electronPackagerConfig": {
-    "icon": "build/icons/icon.ico"
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
   },
-  "author": "YK",
-  "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^6.2.1",
     "@electron-forge/maker-deb": "^6.2.1",
@@ -23,13 +23,10 @@
     "@electron-forge/maker-squirrel": "^6.2.1",
     "@electron-forge/maker-zip": "^6.2.1",
     "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
+    "@electron/rebuild": "3.6.1",
     "electron": "^33.2.0"
   },
   "engines": {
     "node": "14.21.3"
-  },
-  "dependencies": {
-    "@electron/rebuild": "3.6.1",
-    "electron-squirrel-startup": "^1.0.1"
   }
 }
