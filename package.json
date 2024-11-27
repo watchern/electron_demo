@@ -2,15 +2,19 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "An electron project",
-  "main": "main.js",
+  "main": "electron/main.js",
   "author": "YK",
   "license": "ISC",
   "scripts": {
     "dev": "electron .",
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "make:win32": "electron-forge make --platform=win32 --arch=ia32",
+    "build:park": "electron-builder --dir",
+    "build:dist": "electron-builder",
+    "build:make": "electron-forge start",
+    "build:make:win32": "electron-forge start",
+    "forge:pack": "electron-forge package",
+    "forge:make": "electron-forge make",
+    "forge:make:win32": "electron-forge make --platform=win32 --arch=ia32",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -24,7 +28,36 @@
     "@electron-forge/maker-zip": "^6.2.1",
     "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
     "@electron/rebuild": "3.6.1",
-    "electron": "23.3.13"
+    "electron": "23.3.13",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "appIdLuOne",
+    "productName": "productNameSD",
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "electron-dist"
+    },
+    "win": {
+      "target": ["nsis"],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "测试文档项目"
+    }
   },
   "engines": {
     "node": "14.21.3"
